@@ -16,7 +16,7 @@ pub fn part_1_2() {
     let input: Vec<u32> = input.iter().map(|line| line.parse().unwrap()).collect();
 
     let result_1 = calculate_depth_inc(&input, 1);
-    println!("Result 1: {}", result_1);
+    println!("   Result 1: {}", result_1);
     let result_2 = calculate_depth_inc(&input, 3);
-    println!("Result 2: {}", result_2);
+    println!("   Result 2: {}", result_2);
 }

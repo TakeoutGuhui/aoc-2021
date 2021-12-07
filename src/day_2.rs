@@ -23,7 +23,7 @@ impl Submarine {
             commands,
         }
     }
-    
+
     fn reset(&mut self) {
         self.h_pos = 0;
         self.depth = 0;
@@ -40,7 +40,7 @@ impl Submarine {
             }
         }
     }
-    
+
     fn calculate_course_with_aim(&mut self) {
         for command in &self.commands {
             use Command::*;
@@ -50,12 +50,11 @@ impl Submarine {
                     if self.aim != 0 {
                         self.depth += self.aim * num;
                     }
-                },
+                }
                 Down(num) => self.aim += num,
                 Up(num) => self.aim -= num,
             }
         }
-        
     }
 }
 
@@ -82,9 +81,8 @@ pub fn part_1() {
     let commands = parse_lines(&lines);
     let mut submarine = Submarine::new(commands);
     submarine.calculate_course();
-    println!("Part 1 result: {}", submarine.h_pos * submarine.depth);
+    println!("   Part 1: {}", submarine.h_pos * submarine.depth);
     submarine.reset();
     submarine.calculate_course_with_aim();
-    println!("Part 2 result: {}", submarine.h_pos * submarine.depth);
-    
+    println!("   Part 2: {}", submarine.h_pos * submarine.depth);
 }
